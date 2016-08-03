@@ -42,10 +42,14 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DDk-Lp-U1b">
+                                <rect key="frame" x="20" y="371" width="280" height="165"/>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="myScrollView" destination="DDk-Lp-U1b" id="wK2-Ak-EUh"/>
                         <outlet property="result" destination="ZWu-4A-9Kc" id="ssT-ou-nyt"/>
                         <outlet property="txtField" destination="gRr-GA-YSB" id="hVt-BC-Gge"/>
                     </connections>

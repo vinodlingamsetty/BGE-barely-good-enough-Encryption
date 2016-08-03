@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *txtField;
 @property (weak, nonatomic) IBOutlet UILabel *result;
 
+@property (strong, nonatomic) IBOutlet UIScrollView *myScrollView;
 
 @end
 
@@ -29,19 +30,7 @@
 
 - (IBAction)algo1Btn:(id)sender {
     
-//    NSString *str1 = @"Her elephant lost lettuce often, while others really liked donuts";
-//    NSArray *components = [str1 componentsSeparatedByString:@","];
-//
-//    NSMutableArray *trimmedComponents =
-//    [NSMutableArray arrayWithCapacity:[components count]];
-//    
-//    NSCharacterSet *whitespaceCharacterSet = [NSCharacterSet whitespaceCharacterSet];
-//    
-//    for(NSString *component in components)
-//        [trimmedComponents addObject:
-//         [component stringByTrimmingCharactersInSet:whitespaceCharacterSet]];
-//    NSString *fullAddress = [trimmedComponents componentsJoinedByString:@", "];
-//    NSLog(@"%@",components);
+ 
     
     NSCharacterSet * set = [[NSCharacterSet characterSetWithCharactersInString:@"1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLKMNOPQRSTUVWXYZ0123456789"] invertedSet];
     NSMutableString *resultString = [NSMutableString string];
@@ -97,7 +86,7 @@
     for ( NSString *word in plaintxt) {
         
         if ([word length]>=firstObjectLength) {
-//            NSLog(@"%@",word);
+ 
             NSString *firstletter = [NSString stringWithFormat:@"%c",[word characterAtIndex:firstObjectLength-1]];
             NSString *lastLetter = [word substringFromIndex:[word length]-1 ];
             [resultString appendString:firstletter];
@@ -120,7 +109,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    UIScrollView *scroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 300, self.view.frame.size.width, self.view.frame.size.height)];
+    
+    scroll.userInteractionEnabled = YES;
+    scroll.showsHorizontalScrollIndicator = YES;
+    [self.view addSubview:scroll];
+    
+    UITextView *myLabel = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 150)];
+    
+    myLabel.text = @"\nDescription \nAlgorithm 1: \n1) Take the first character from each word.\n2) Use a space character for any commas (“,”).\n3) Concatenate all the characters to form the decrypted text.\n\nSample input: Her elephant lost lettuce often, while others really liked donuts.\nDecrypted text: Hello world\n\n\nAlgorithm 2: \n1) The length of the first word is used as a key (I’ll call it N). \n2) For the remaining words select the character at position N. For words shorter than N print a space character. \n3) Concatenate all the characters to form the decrypted text.\n\nSample Input: Dogs fight able abolish acclaim famous is airwaves favor diary darling handbag. \nDecrypted text: hello world\n\nAnother input for algorithm 2: Four hazy halos abduct an aligned abhors rafters on rabid rants.";
+    myLabel.textAlignment = NSTextAlignmentLeft;
+    
+    [scroll addSubview:myLabel];
 }
 
 - (void)didReceiveMemoryWarning {
