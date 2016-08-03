@@ -46,12 +46,13 @@
     NSCharacterSet * set = [[NSCharacterSet characterSetWithCharactersInString:@"1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLKMNOPQRSTUVWXYZ0123456789"] invertedSet];
     NSMutableString *resultString = [NSMutableString string];
     
+    userString = _txtField.text;
     
-      words = [@"Her elephant lost lettuce often, while others really liked donuts" componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+      words = [userString componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     
     NSLog(@"%@",words);
     
-    userString = _txtField.text;
+    
     strlength = [userString length];
     NSLog(@"User string length = %ld", strlength);
     
@@ -78,7 +79,9 @@
     NSCharacterSet * set = [[NSCharacterSet characterSetWithCharactersInString:@"1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLKMNOPQRSTUVWXYZ0123456789"] invertedSet];
     NSMutableString *resultString = [NSMutableString string];
     NSMutableArray *plaintxt = [[NSMutableArray alloc]init];
-     words = [@"Dogs fight able abolish acclaim famous is airwaves favor diary darling handbag" componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    userString = _txtField.text;
+
+     words = [userString componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     
     [plaintxt addObjectsFromArray:words];
     
